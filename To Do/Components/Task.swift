@@ -1,20 +1,22 @@
-//
-//  Task.swift
-//  To Do
-//
-//  Created by SC on 2022-12-17.
-//
-
 import SwiftUI
 
-struct Task: View {
+struct TaskRow: View {
+    var task: String
+    var completed: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 20) {
+            // If task is completed, show a checkmark circle, otherwise show an empty circle
+            Image(systemName: completed ? "checkmark.circle" : "circle")
+            
+            Text(task)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
-struct Task_Previews: PreviewProvider {
+struct TaskRow_Previews: PreviewProvider {
     static var previews: some View {
-        Task()
+        TaskRow(task: "Do laundry", completed: false)
     }
 }
