@@ -6,6 +6,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
+            Tasks()
 //            Tasks()
 //                .environmentObject(realmManager)
             
@@ -16,7 +17,7 @@ struct ContentView: View {
                 }
         }
         .sheet(isPresented: $showAddTaskView) {
-            AddTaskView()
+            AddTask()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .background(Color(hue: 0.822, saturation: 0.047, brightness: 0.95))
