@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  To_DoApp.swift
 //  To Do
 //
 //  Created by SC on 2022-12-17.
@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var realmManager = RealmManager()
+    @State private var showAddTaskView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack(alignment: .bottomTrailing) {
+            Tasks()
+                .environmentObject(realmManager)
+            
+            AddButton()
+                .padding()
+                .onTapGesture {
+                    showAddTaskView.toggle()
+                }
         }
-        .padding()
+        .sheet(isPresented: $showAddTaskView) {
+            AddTaskView()
+                .environmentObject(realmManager)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
     }
 }
 
