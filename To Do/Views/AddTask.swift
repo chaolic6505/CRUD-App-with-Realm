@@ -1,7 +1,14 @@
+//
+//  To_DoApp.swift
+//  To Do
+//
+//  Created by SC on 2022-12-17.
+//
+
 import SwiftUI
 
-struct AddTask: View {
-    @EnvironmentObject var realmManager: Realm
+struct AddTaskView: View {
+    @EnvironmentObject var realmManager: RealmManager
     @State private var title: String = ""
     @Environment(\.dismiss) var dismiss
     
@@ -42,7 +49,7 @@ struct AddTask: View {
 
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTask()
-            .environmentObject(Realm())
+        AddTaskView()
+            .environmentObject(RealmManager())
     }
 }

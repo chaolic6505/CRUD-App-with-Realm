@@ -1,3 +1,10 @@
+//
+//  To_DoApp.swift
+//  To Do
+//
+//  Created by SC on 2022-12-17.
+//
+
 import SwiftUI
 
 struct TaskRow: View {
@@ -6,7 +13,6 @@ struct TaskRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            // If task is completed, show a checkmark circle, otherwise show an empty circle
             Image(systemName: completed ? "checkmark.circle" : "circle")
             
             Text(task)
@@ -17,6 +23,6 @@ struct TaskRow: View {
 
 struct TaskRow_Previews: PreviewProvider {
     static var previews: some View {
-        TaskRow(task: "Do laundry", completed: false)
+        TaskRow(task: "Absorb new knowldge", completed: false)
     }
 }
